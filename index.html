@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration & Tech Blog</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #005bb5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: #0073e6;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+        }
+
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .post {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        .post:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .post h2 {
+            font-size: 2em;
+            margin-top: 0;
+        }
+
+        .post p {
+            margin: 20px 0;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .post .read-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #0073e6;
+            color: #fff;
+            border-radius: 5px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .post .read-more:hover {
+            background-color: #005bb5;
+        }
+
+        .sidebar {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .sidebar h3 {
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        .sidebar p,
+        .sidebar ul {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Inspiration & Tech Blog</h1>
+            <p>Motivating Thoughts and Technological Insights</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+		<li><a href="game2.html">Games</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container grid">
+        <div class="content">
+            <article class="post">
+                <h2>"The Future is Already Here"</h2>
+                <p>Posted on August 27, 2024</p>
+                <p>"The future is already here – it's just not evenly distributed." – William Gibson. This quote reminds us
+                    that technological advancements are constantly shaping our world, but access and implementation vary across
+                    different regions. As we develop new technologies, it’s crucial to focus on creating equitable access for all.</p>
+                <a href="#" class="read-more">Read More...</a>
+            </article>
+
+            <article class="post">
+                <h2>"Dream Big, Innovate Bigger"</h2>
+                <p>Posted on August 26, 2024</p>
+                <p>"The best way to predict the future is to invent it." – Alan Kay. In the tech world, innovation is key.
+                    By dreaming big and pushing the boundaries of what’s possible, we can create the technologies that will
+                    define the future.</p>
+                <a href="#" class="read-more">Read More...</a>
+            </article>
+        </div>
+
+        <aside class="sidebar">
+            <h3>About This Blog</h3>
+            <p>This blog is dedicated to sharing motivational quotes and the latest insights from the tech industry. We aim
+                to inspire and inform our readers with content that resonates on both a personal and professional level.</p>
+
+            <h3>Recent Posts</h3>
+            <ul>
+                <li><a href="#">"The Future is Already Here"</a></li>
+                <li><a href="#">"Dream Big, Innovate Bigger"</a></li>
+                <li><a href="#">"Embrace Change, Lead Innovation"</a></li>
+                <li><a href="#">"Tech for Good: Innovating with Purpose"</a></li>
+            </ul>
+
+            <h3>Follow Us</h3>
+            <p><a href="#">Twitter</a> | <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Inspiration & Tech Blog. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
+

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Inspiration & Tech Blog</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header, nav, footer {
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1, nav ul li a {
+            color: #fff;
+        }
+
+        nav {
+            background-color: #005bb5;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .game {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="number"], select {
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .message.correct {
+            color: #28a745;
+        }
+
+        .message.incorrect {
+            color: #dc3545;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Inspiration & Tech Blog</h1>
+            <p>Motivating Thoughts and Technological Insights</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="game">
+            <h2>Guess the Number</h2>
+            <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+            <input type="number" id="guessInput" placeholder="Enter your guess" min="1" max="100">
+            <button onclick="checkGuess()">Submit Guess</button>
+            <p class="message" id="guessMessage"></p>
+            <button onclick="resetGuessGame()" id="guessResetButton" style="display: none;">Play Again</button>
+        </div>
+
+        <div class="game">
+            <h2>Rock, Paper, Scissors</h2>
+            <p>Choose Rock, Paper, or Scissors to play against the computer.</p>
+            <select id="rpsChoice">
+                <option value="rock">Rock</option>
+                <option value="paper">Paper</option>
+                <option value="scissors">Scissors</option>
+            </select>
+            <button onclick="playRPS()">Play</button>
+            <p class="message" id="rpsMessage"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Inspiration & Tech Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Guess the Number Game
+        let randomNumber;
+        let attempts;
+
+        function startGuessGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('guessMessage').textContent = '';
+            document.getElementById('guessInput').value = '';
+            document.getElementById('guessResetButton').style.display = 'none';
+        }
+
+        function checkGuess() {
+            const userGuess = Number(document.getElementById('guessInput').value);
+            const messageElement = document.getElementById('guessMessage');
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                messageElement.textContent = 'Please enter a number between 1 and 100.';
+                messageElement.className = 'message incorrect';
+                return;
+            }
+
+            attempts++;
+
+            if (userGuess === randomNumber) {
+                messageElement.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+                messageElement.className = 'message correct';
+                document.getElementById('guessResetButton').style.display = 'inline-block';
+            } else if (userGuess < randomNumber) {
+                messageElement.textContent = 'Too low! Try again.';
+                messageElement.className = 'message incorrect';
+            } else {
+                messageElement.textContent = 'Too high! Try again.';
+                messageElement.className = 'message incorrect';
+            }
+        }
+
+        function resetGuessGame() {
+            startGuessGame();
+        }
+
+        // Rock, Paper, Scissors Game
+        function playRPS() {
+            const choices = ['rock', 'paper', 'scissors'];
+            const userChoice = document.getElementById('rpsChoice').value;
+            const computerChoice = choices[Math.floor(Math.random() * 3)];
+            const messageElement = document.getElementById('rpsMessage');
+
+            if (userChoice === computerChoice) {
+                messageElement.textContent = `It's a tie! Both chose ${userChoice}.`;
+                messageElement.className = 'message';
+            } else if (
+                (userChoice === 'rock' && computerChoice === 'scissors') ||
+                (userChoice === 'paper' && computerChoice === 'rock') ||
+                (userChoice === 'scissors' && computerChoice === 'paper')
+            ) {
+                messageElement.textContent = `You win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${computerChoice}.`;
+                messageElement.className = 'message correct';
+            } else {
+                messageElement.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${userChoice}.`;
+                messageElement.className = 'message incorrect';
+            }
+        }
+
+        window.onload = startGuessGame;
+    </script>
+</body>
+
+</html>
+
